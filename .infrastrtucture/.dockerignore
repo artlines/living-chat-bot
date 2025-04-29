@@ -1,0 +1,41 @@
+# Исключаем служебные файлы и папки
+
+# Git
+.git
+../.gitignore
+
+# Docker
+.dockerignore
+Dockerfile
+
+# Бинарники
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.bin
+*.o
+
+# Кэш
+tmp
+bin
+build
+.cache
+
+# IDE и редакторы
+.vscode/
+.idea/
+*.swp
+
+# NodeJS-проекты (на будущее, если что-то добавится)
+node_modules/
+
+# Логи
+*.log
+
+# Конфиги
+.env
+.env.*

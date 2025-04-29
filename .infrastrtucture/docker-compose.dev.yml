@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:13
+    container_name: living_chat_db_dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: living_chat_bot_dev
+    ports:
+      - "5433:5432" # Для DEV перенесем порт, чтобы не конфликтовал с продом
+    volumes:
+      - db_data_dev:/var/lib/postgresql/data
+
+  bot:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+      target: dev
+    container_name: living_chat_bot_dev
+    restart: unless-stopped
+    env_file:
+      - ../.env.dev
+    depends_on:
+      - db
+    volumes:
+      - .:/app # Монтируем код в контейнер для автообновления
+    command: ["air"] # Запуск через Air для автоперезагрузки
+
+volumes:
+  db_data_dev:

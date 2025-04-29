@@ -1,0 +1,24 @@
+# Основные настройки
+root = "."
+tmp_dir = "tmp"
+
+# Настройки для перезапуска
+[build]
+cmd = "go build -o ./tmp/main ./cmd"
+bin = "tmp/main"
+full_bin = ""
+include_ext = ["go", "tpl", "tmpl", "html"]
+exclude_dir = ["vendor", "tmp", "node_modules"]
+delay = 1000 # мс между изменениями и рестартом
+stop_on_error = true
+
+# Настройки логов
+[color]
+main = "yellow"
+watcher = "cyan"
+build = "green"
+runner = "magenta"
+
+# Настройки наблюдения
+[log]
+time = true

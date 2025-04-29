@@ -1,0 +1,27 @@
+# Go
+/bin/
+/obj/
+/*.exe
+/*.exe~
+/*.out
+/*.test
+/*.log
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+
+# Environment files
+.env
+.env.dev
+.env.prod
+
+# Vendor directory (если используешь vendoring)
+vendor/
+
+# Docker
+.docker/
+
+# MacOS
+.DS_Store
